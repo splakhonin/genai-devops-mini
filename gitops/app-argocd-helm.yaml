@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: demo
   source:
-    repoURL: https://github.com/YOUR-GITHUB-USER/genai-devops-mini.git
+    repoURL: https://github.com/splakhonin/genai-devops-mini.git
     targetRevision: main
     path: helm/nginx-demo
     helm:
