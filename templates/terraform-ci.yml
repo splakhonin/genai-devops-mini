@@ -1,0 +1,22 @@
+stages:
+  - terraform-plan
+  - terraform-apply
+
+terraform-plan:
+  image: hashicorp/terraform:1.9
+  stage: terraform-plan
+  script:
+    - cd infra/terraform
+    - terraform init
+    - terraform plan -out=tfplan
+  artifacts:
+    paths:
+      - infra/terraform/tfplan
+
+terraform-apply:
+  image: hashicorp/terraform:1.9
+  stage: terraform-apply
+  script:
+    - cd infra/terraform
+    - terraform apply -auto-approve tfplan
+  when: manual
